@@ -1,0 +1,9 @@
+REST APIs are an industry-standard way for web services to send and receive data. 
+They use HTTP request methods to make the request-response cycle 
+and typically transfer data using JSON.
+
+HTTP method	        CRUD	                Action
+GET	                read	        returns requested data
+POST	            create	        creates a new record
+PUT or PATCH	    update	        updates an existing record
+DELETE	            delete	        deletes an existing record
