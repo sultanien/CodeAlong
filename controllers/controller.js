@@ -33,8 +33,12 @@ export const createMovie = (req, res) => {
 
   movies.push(newMovie);
   res
-    .status(201) // 201 created as the result of a POST request.
-    .send(`${newMovie.title} with the id "${newMovie.id}" is added to the movies`);
+    .status(201) // 201 created as the result of a POST request
+    .json(
+      {
+        msg:`${newMovie.title} with the id "${newMovie.id}" is added to the movies, ${newMovie}`,
+        movie: newMovie
+      });
 };
 
 export const getMovieById = (req, res) => {
@@ -45,7 +49,7 @@ export const getMovieById = (req, res) => {
     //Not found error 404
     res.status(404).send(`Movie with the id ${id} is not found in the database.`);
   }
-  res.send(foundMovie)
+  res.json(foundMovie)
 };
 
 export const deleteMovieById = (req, res) => {

@@ -24,7 +24,6 @@ describe("POST /movies", () => {
         };
         test("should respond with a 201 status code", async()=>{
             const response = await request.post("/movies").send(example);
-            console.log(response.body);
             expect(response.statusCode).toBe(201);
         });
         test("should specify json as the content type in the http header", async()=>{
@@ -32,8 +31,9 @@ describe("POST /movies", () => {
             expect(response.headers['content-type']).toEqual(expect.stringContaining('json'))
         });
         test("should contain a id in the response body", async()=>{
-            const response = await request.post("/movies").send(example)
-            expect(response.body.id).toBeDefined()
+            const response = await request.post("/movies").send(example);
+            console.log(response.body.movie.id);
+            expect(response.body.movie.id).toBeDefined()
         });
   });
   describe("when passed a title, director or release date is missing", () =>{
